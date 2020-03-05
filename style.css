@@ -1,0 +1,83 @@
+:root {
+  --background: #000;
+  --text: white;
+  --highlight: deepskyblue;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--background);
+  transition: all 0.5s ease;
+}
+.theme-switch {
+  --background: white;
+  --text: #000;
+  color: var(--text);
+  width: 70px;
+  height: 30px;
+  background: var(--highlight);
+  border-radius: 50px;
+  position: relative;
+}
+.theme-switch .switch {
+  background: var(--background);
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  top: 3px;
+  left: 4px;
+  position: absolute;
+  transition: all 0.5s ease;
+}
+.light-theme {
+  --background: white;
+  --text: #000;
+  background: var(--background);
+}
+.light-theme .theme-switch {
+  background: var(--text);
+}
+.light-theme .theme-switch .switch {
+  transform: translateX(37px);
+}
+nav {
+  display: flex;
+  justify-content: center;
+}
+ul {
+  display: flex;
+  justify-content: center;
+}
+ul a {
+  color: var(--text);
+  list-style: none;
+  margin: 10px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+ul a::before {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  content: "";
+  bottom: -2px;
+  background: var(--highlight);
+  transform: translateX(-100px);
+  opacity: 0;
+}
+ul a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 0.5s transform ease, 0.5s opacity ease;
+}
+ul .active {
+  color: var(--highlight);
+}
+ul .active:hover::before {
+  opacity: 0;
+}
